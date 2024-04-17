@@ -18,7 +18,7 @@ public class BookController {
     @Autowired
     private BookServiceImpl service;
 
-    @GetMapping({"/books", "/books/"})
+    @GetMapping({"/api/books", "/api/books/"})
     public ResponseEntity<List<Book>> getAllBooks() {
         List<Book> books = service.findAllBooks();
         if (books.isEmpty()) throw new EmptyLibraryException();
@@ -38,7 +38,7 @@ public class BookController {
 
     // For simplicity, I will use PathVariable
 
-    @GetMapping("/books/{id}")
+    @GetMapping("/api/books/{id}")
     public ResponseEntity<Book> getBook(@PathVariable Long id) {
         return service.findBookById(id).map(ResponseEntity::ok).orElseThrow(() -> new BookNotFoundException(id));
     }

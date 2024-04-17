@@ -44,6 +44,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents.client5</groupId>
+			<artifactId>httpclient5</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -59,27 +64,6 @@
 						</exclude>
 					</excludes>
 				</configuration>
-			</plugin>
-			<plugin>
-			      <artifactId>maven-resources-plugin</artifactId>
-			      <executions>
-				<execution>
-				  <id>copy frontend content</id>
-				  <phase>generate-resources</phase>
-				  <goals>
-				    <goal>copy-resources</goal>
-				  </goals>
-				  <configuration>
-				    <outputDirectory>target/classes/static</outputDirectory>
-				    <overwrite>true</overwrite>
-				    <resources>
-				      <resource>
-					<directory>../frontend/dist</directory>
-				      </resource>
-				    </resources>
-				  </configuration>
-				</execution>
-			      </executions>
 			</plugin>
 		</plugins>
 	</build>
