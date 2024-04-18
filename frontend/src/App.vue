@@ -1,90 +1,66 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import { ref } from 'vue'
+
+
+let drawer = ref(null);
+
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-    <v-icon icon="mdi-home" />
+  <v-app id="inspire">
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <v-navigation-drawer
+      v-model="drawer"
+      expand-on-hover
+      permanent
+      rail
+      app
+      color="#e5f1c4"
+    >
+      <v-list>
+          <v-list-item class="px-2" 
+          prepend-avatar="./public/anastacia.jpg"
+          subtitle="anaanestesia@gmail.com"
+          title="Anastácia Canto"
+          ></v-list-item>
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/books">Books</RouterLink>
-      </nav>
-    </div>
-  </header>
+        </v-list>
 
-  <Suspense>
+        <v-divider></v-divider>
 
-    <RouterView />
-  </Suspense>
+        <v-list
+          nav
+          dense
+        >
+          <v-list-item to="/"
+          prepend-icon="mdi-home"
+          title="Home"
+          ></v-list-item>
+          <v-list-item to="/books"
+          prepend-icon="mdi-library"
+          title="Books"
+          ></v-list-item>
+        </v-list>
+    </v-navigation-drawer>
+
+
+    <v-app-bar app>
+      <v-toolbar-title>Nana's Library</v-toolbar-title>
+    </v-app-bar>
+
+    <v-main>
+        <div>
+          <HelloWorld msg="Um leitor vive mil vidas antes de morrer. O home que nunca lê vive apenas uma. George R. R. Martin" />
+          <Suspense>
+            <RouterView />
+          </Suspense>
+        </div> 
+    </v-main>
+  </v-app>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
 </style>
