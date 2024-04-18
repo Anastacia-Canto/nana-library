@@ -1,15 +1,18 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import Quotes from './components/Quotes.vue'
 import { ref } from 'vue'
-
 
 let drawer = ref(null);
 
 </script>
 
 <template>
-  <v-app id="inspire">
+  <v-app>
+
+    <v-app-bar app>
+      <v-toolbar-title>Nana's Library</v-toolbar-title>
+    </v-app-bar>
 
       <v-navigation-drawer
       v-model="drawer"
@@ -21,7 +24,7 @@ let drawer = ref(null);
     >
       <v-list>
           <v-list-item class="px-2" 
-          prepend-avatar="./public/anastacia.jpg"
+          prepend-avatar="/anastacia.jpg"
           subtitle="anaanestesia@gmail.com"
           title="Anastácia Canto"
           ></v-list-item>
@@ -42,17 +45,18 @@ let drawer = ref(null);
           prepend-icon="mdi-library"
           title="Books"
           ></v-list-item>
+          <v-list-item to="/about"
+          prepend-icon="mdi-information-variant"
+          title="About"
+          ></v-list-item>
         </v-list>
     </v-navigation-drawer>
 
-
-    <v-app-bar app>
-      <v-toolbar-title>Nana's Library</v-toolbar-title>
-    </v-app-bar>
-
-    <v-main>
+    <v-main class="main">
         <div>
-          <HelloWorld msg="Um leitor vive mil vidas antes de morrer. O home que nunca lê vive apenas uma. George R. R. Martin" />
+          <Suspense>
+            <Quotes />
+          </Suspense>
           <Suspense>
             <RouterView />
           </Suspense>
@@ -62,5 +66,10 @@ let drawer = ref(null);
 </template>
 
 <style scoped>
+
+.main {
+  width: 80vw;
+  display: flex;
+}
 
 </style>
