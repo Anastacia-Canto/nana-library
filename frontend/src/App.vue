@@ -86,6 +86,7 @@ function toggleTheme() {
 .main {
   width: 80vw;
   display: flex;
+  justify-content: center;
 }
 
 .toggle {
