@@ -2,8 +2,18 @@
 import { RouterLink, RouterView } from 'vue-router'
 import Quotes from './components/Quotes.vue'
 import { ref } from 'vue'
+import { useTheme } from 'vuetify'
+
 
 let drawer = ref(null);
+
+
+const theme = useTheme();
+
+function toggleTheme() {
+  theme.global.name.value = theme.current._value.dark ? 'light' : 'dark';
+};
+
 
 </script>
 
@@ -28,28 +38,34 @@ let drawer = ref(null);
           subtitle="anaanestesia@gmail.com"
           title="Anastácia Canto"
           ></v-list-item>
+      </v-list>
 
-        </v-list>
+      <v-divider></v-divider>
+      
+      <v-list
+        nav
+        dense
+      >
+        <v-list-item to="/"
+        prepend-icon="mdi-home"
+        title="Home"
+        ></v-list-item>
+        <v-list-item to="/books"
+        prepend-icon="mdi-library"
+        title="Books"
+        ></v-list-item>
+        <v-list-item to="/about"
+        prepend-icon="mdi-information-variant"
+        title="About"
+        ></v-list-item>
+      </v-list>
 
-        <v-divider></v-divider>
-
-        <v-list
-          nav
-          dense
-        >
-          <v-list-item to="/"
-          prepend-icon="mdi-home"
-          title="Home"
-          ></v-list-item>
-          <v-list-item to="/books"
-          prepend-icon="mdi-library"
-          title="Books"
-          ></v-list-item>
-          <v-list-item to="/about"
-          prepend-icon="mdi-information-variant"
-          title="About"
-          ></v-list-item>
-        </v-list>
+      <div class="toggle pa-3">
+        <v-btn  max-width="30" max-height="30" icon @click="toggleTheme">
+          <v-icon>mdi-theme-light-dark</v-icon>
+        </v-btn>
+      </div>
+       
     </v-navigation-drawer>
 
     <v-main class="main">
@@ -70,6 +86,11 @@ let drawer = ref(null);
 .main {
   width: 80vw;
   display: flex;
+}
+
+.toggle {
+  position: absolute;
+  bottom: 0;
 }
 
 </style>
