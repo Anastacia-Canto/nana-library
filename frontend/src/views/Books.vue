@@ -10,6 +10,7 @@
 
 			for (const e in books) {
 				cards.push({
+					id: books[e].id,
 					title: books[e].title,
 					src: books[e].imageName,
 					flex: 12,
@@ -38,7 +39,10 @@
 			:cols="card.flex"
 			md="4"
 		  >
-			<v-card>
+			<v-card 
+			:href="'/books/' + card.id"
+			color="transparent"
+			>
 			  <v-img
 				:src="card.src"
 				class="align-end"
