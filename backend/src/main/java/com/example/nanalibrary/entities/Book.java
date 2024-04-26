@@ -17,13 +17,15 @@ public class Book {
     private String title;
     private List<String> authors = new ArrayList<>();
     private String publisher;
+    private String imageName;
 
     public Book(){}
 
-    public Book(String title, List<String> authors, String publisher) {
+    public Book(String title, List<String> authors, String publisher, String imageName) {
         this.title = title;
         this.authors = authors;
         this.publisher = publisher;
+        this.imageName = imageName;
     }
 
     public Long getId() {
@@ -53,6 +55,10 @@ public class Book {
     public void setPublisher(String publisher) {
         this.publisher = publisher;
     }
+
+    public String getImageName() { return imageName; }
+
+    public void setImageName(String imageName) { this.imageName = imageName; }
 
     @Override
     public boolean equals(Object o) {

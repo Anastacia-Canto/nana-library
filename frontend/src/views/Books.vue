@@ -11,7 +11,7 @@
 			for (const e in books) {
 				cards.push({
 					title: books[e].title,
-					src: '/anastacia.jpg',
+					src: books[e].imageName,
 					flex: 12,
 				});
 			}

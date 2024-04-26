@@ -17,10 +17,10 @@ public class TestConfig implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Book b1 = new Book("Conversas Corajosas", Arrays.asList("Elisama Santos"), "Paz e Terra");
-        Book b2 = new Book("Finding me", Arrays.asList("Viola Davis"), "Harper Collins");
-        Book b3 = new Book("O Cérebro da Criança", Arrays.asList("Daniel J. Siegel", "Tina Payne Bryson"), "Casa das Letras");
-        Book b4 = new Book("Diário de uma paixão", Arrays.asList("Nicholas Sparks"), "Arqueiro");
+        Book b1 = new Book("Conversas Corajosas", Arrays.asList("Elisama Santos"), "Paz e Terra", "conversas_corajosas.jpg");
+        Book b2 = new Book("Finding me", Arrays.asList("Viola Davis"), "Harper Collins", "finding_me.jpg");
+        Book b3 = new Book("O Cérebro da Criança", Arrays.asList("Daniel J. Siegel", "Tina Payne Bryson"), "Casa das Letras", "whole_brain_child.jpg");
+        Book b4 = new Book("Diário de uma paixão", Arrays.asList("Nicholas Sparks"), "Arqueiro", "the_notebook.jpg");
 
         repository.saveBook(b1);
         repository.saveAllBooks(Arrays.asList(b2, b3, b4));
