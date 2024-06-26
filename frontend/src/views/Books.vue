@@ -40,7 +40,8 @@
 			md="4"
 		  >
 			<v-card 
-			:href="'/books/' + card.id"
+			:to="'/books/' + card.id"
+			title="Book"
 			color="transparent"
 			>
 			  <v-img

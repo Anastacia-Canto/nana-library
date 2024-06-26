@@ -68,7 +68,7 @@ function toggleTheme() {
        
     </v-navigation-drawer>
 
-    <v-main class="main">
+    <v-main class="main mt-7">
         <div>
           <Suspense>
             <Quotes />
