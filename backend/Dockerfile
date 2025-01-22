@@ -1,6 +1,6 @@
 FROM maven
 
-RUN ../mvnw clean install -DskipTests
+RUN ./mvnw clean install -DskipTests
 
 FROM openjdk:17
 ARG JAR_FILE=target/*.jar
