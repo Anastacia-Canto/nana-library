@@ -1,0 +1,24 @@
+services:
+
+  frontend:
+    container_name: frontend
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    networks:
+      - nanalibrary
+  
+  backend:
+    container_name: backend
+    build: ./backend
+    ports:
+      - "8080:8080"
+    networks:
+      - nanalibrary
+  
+  
+networks:
+  nanalibrary:
+    driver: bridge
