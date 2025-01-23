@@ -1,30 +1,11 @@
-<script>
+<script async setup>
 
-	export default {
+import { useBookStore } from '@/stores/books';
 
-		async setup() {
-			const res = await fetch('http://localhost:8080/api/books');
-			let books = await res.json();
+const bookStore = useBookStore();
+const cards = bookStore.booksList;
 
-			let cards = [];
 
-			for (const e in books) {
-				cards.push({
-					id: books[e].id,
-					title: books[e].title,
-					src: books[e].imageName,
-					flex: 12,
-				});
-			}
-
-			return {
-				cards
-			}
-		},
-
-		
-
-	}
 </script>
 <template>
 	<v-card

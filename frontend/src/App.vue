@@ -3,6 +3,11 @@ import { RouterLink, RouterView } from 'vue-router'
 import Quotes from './components/Quotes.vue'
 import { ref } from 'vue'
 import { useTheme } from 'vuetify'
+import { useBookStore } from '@/stores/books';
+
+  // initializing store
+	const bookStore = useBookStore();
+  bookStore.getBooks();
 
 
 let drawer = ref(null);
