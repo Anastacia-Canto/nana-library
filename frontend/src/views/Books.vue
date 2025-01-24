@@ -1,10 +1,12 @@
-<script async setup>
+<script setup>
 
 import { useBookStore } from '@/stores/books';
 
 const bookStore = useBookStore();
-const cards = bookStore.booksList;
 
+if (bookStore.booksList.length === 0) await bookStore.getBooks();
+
+const cards = bookStore.booksList;
 
 </script>
 <template>

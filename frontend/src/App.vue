@@ -1,13 +1,7 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import Quotes from './components/Quotes.vue'
+import { RouterView } from 'vue-router'
 import { ref } from 'vue'
 import { useTheme } from 'vuetify'
-import { useBookStore } from '@/stores/books';
-
-  // initializing store
-	const bookStore = useBookStore();
-  bookStore.getBooks();
 
 
 let drawer = ref(null);
@@ -75,9 +69,9 @@ function toggleTheme() {
 
     <v-main class="main mt-7">
         <div>
-          <Suspense>
+          <!-- <Suspense>
             <Quotes />
-          </Suspense>
+          </Suspense> -->
           <Suspense>
             <RouterView />
           </Suspense>

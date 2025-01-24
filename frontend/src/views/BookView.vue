@@ -1,9 +1,16 @@
 <script setup>
-	import { storeToRefs } from 'pinia';
 	import { useBookStore } from '@/stores/books';
+	import { useRoute } from 'vue-router';
 
 	const bookStore = useBookStore();
-	const { getBookById } = storeToRefs(bookStore);
+
+	const route = useRoute();
+	const id = route.params.id;
+	
+	if (bookStore.booksList.length === 0) await bookStore.getBooks();
+
+	const book = bookStore.booksList.find(book => book.id == id);
+		
 
 </script>
 
@@ -11,7 +18,9 @@
 	<h1>BookView</h1>
 	<div>
 		Book: {{ $route.params.id }}
-		teste: {{ getBookById($route.params.id).title }}
-		{{ bookStore.isFetched }}
+		{{ book.title }}
+		
+	
+		
 	</div>
 </template>
