@@ -21,7 +21,11 @@ export const useBookStore = defineStore('books', {
 					this.booksList.push({
 						id: books[e].id,
 						title: books[e].title,
+						author: books[e].authors[0],
+						publisher: books[e].publisher,
 						src: books[e].imageName,
+						description: books[e].description,
+						link: books[e].link,
 						flex: 12,
 					});
 				}

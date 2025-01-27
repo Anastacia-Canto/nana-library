@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Column;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,14 +20,37 @@ public class Book {
     private String publisher;
     private String imageName;
 
+    @Column(name = "description", length = 10000)
+    private String description;
+
+    private String link;
+
     public Book(){}
 
-    public Book(String title, List<String> authors, String publisher, String imageName) {
+    public Book(String title, List<String> authors, String publisher, String imageName, String description, String link) {
         this.title = title;
         this.authors = authors;
         this.publisher = publisher;
         this.imageName = imageName;
+        this.description = description;
+        this.link = link;
     }
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
 
     public Long getId() {
         return id;
