@@ -1,6 +1,7 @@
 <script setup>
 
 let quotes;
+// https://github.com/Sumansourabh14/recite
 let res = await fetch("https://recite.onrender.com/random/quote-from-db");
 if (!res) {
   quotes.quote = "A reader lives a thousand lives before he dies.";

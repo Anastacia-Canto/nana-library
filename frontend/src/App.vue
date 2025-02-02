@@ -11,6 +11,7 @@ const theme = useTheme();
 
 function toggleTheme() {
   theme.global.name.value = theme.current._value.dark ? 'light' : 'dark';
+  
 };
 
 
@@ -34,8 +35,8 @@ function toggleTheme() {
       <v-list>
           <v-list-item class="px-2" 
           prepend-avatar="/anastacia.jpg"
-          subtitle="anaanestesia@gmail.com"
           title="Anastácia Canto"
+          subtitle="Nana"
           ></v-list-item>
       </v-list>
 
@@ -69,9 +70,6 @@ function toggleTheme() {
 
     <v-main class="main mt-7">
         <div>
-          <!-- <Suspense>
-            <Quotes />
-          </Suspense> -->
           <Suspense>
             <RouterView />
           </Suspense>
