@@ -1,10 +1,5 @@
 package com.example.nanalibrary.entities;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +11,9 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String title;
+
+    private String category;
+
     private List<String> authors = new ArrayList<>();
     private String publisher;
     private String imageName;
@@ -27,7 +25,8 @@ public class Book {
 
     public Book(){}
 
-    public Book(String title, List<String> authors, String publisher, String imageName, String description, String link) {
+    public Book(String category, String title, List<String> authors, String publisher, String imageName, String description, String link) {
+        this.category = category;
         this.title = title;
         this.authors = authors;
         this.publisher = publisher;
@@ -35,6 +34,14 @@ public class Book {
         this.description = description;
         this.link = link;
     }
+
+    public String getCategory() {
+        return this.category;
+    }
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
     public String getLink() {
         return link;
     }

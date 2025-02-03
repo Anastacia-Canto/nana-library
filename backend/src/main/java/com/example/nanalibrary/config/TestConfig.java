@@ -17,7 +17,7 @@ public class TestConfig implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Book b1 = new Book("Becoming", Arrays.asList("Michelle Obama"), "Random House Uk", "becoming.jpg",
+        Book b1 = new Book("Biography", "Becoming", Arrays.asList("Michelle Obama"), "Random House Uk", "becoming.jpg",
                 "\n" +
                         "\n" +
                         "An intimate, powerful, and inspiring memoir; 17 million copies sold worldwide\n" +
@@ -34,7 +34,7 @@ public class TestConfig implements CommandLineRunner {
                         "\n" +
                         "Sunday Times bestseller, November 2018\n",
                         "https://tinyurl.com/5be5uaam");
-        Book b2 = new Book("Finding me", Arrays.asList("Viola Davis"), "Harper Collins", "finding_me.jpg",
+        Book b2 = new Book("Biography", "Finding me", Arrays.asList("Viola Davis"), "Harper Collins", "finding_me.jpg",
                 "\n" +
                         "\n" +
                         "THE INSTANT SUNDAY TIMES BESTSELLER\n" +
@@ -53,7 +53,7 @@ public class TestConfig implements CommandLineRunner {
                         "Finding Me is a deep reflection on my past and a promise for my future. My hope is that my story will inspire you to light up your own life with creative expression and rediscover who you were before the world put a label on you.\n",
                         "https://tinyurl.com/ys6wkv28");
 
-        Book b3 = new Book("The Whole-Brain Child", Arrays.asList("Daniel J. Siegel", "Tina Payne Bryson"), "Random House Publishing Group", "whole_brain_child.jpg", "\n" +
+        Book b3 = new Book("Parenting & Relationships", "The Whole-Brain Child", Arrays.asList("Daniel J. Siegel", "Tina Payne Bryson"), "Random House Publishing Group", "whole_brain_child.jpg", "\n" +
                 "\n" +
                 "NEW YORK TIMES BESTSELLER • More than 1 million copies in print! • The authors of No-Drama Discipline and The Yes Brain explain the new science of how a child’s brain is wired and how it matures in this pioneering, practical book.\n" +
                 " \n" +
@@ -72,7 +72,7 @@ public class TestConfig implements CommandLineRunner {
                 "“Gives parents and teachers ideas to get all parts of a healthy child’s brain working together.”—Parent to Parent\n",
                 "https://tinyurl.com/6m78y7eb");
 
-        Book b4 = new Book("The Notebook", Arrays.asList("Nicholas Sparks"), "Sphere", "the_notebook.jpg", "\n" +
+        Book b4 = new Book("Romance", "The Notebook", Arrays.asList("Nicholas Sparks"), "Sphere", "the_notebook.jpg", "\n" +
                 "\n" +
                 "Celebrating 25 years of The Notebook - the classic novel which became the heart-wrenching film.\n" +
                 "\n" +
@@ -100,7 +100,7 @@ public class TestConfig implements CommandLineRunner {
                 "\n" +
                 "'This one won't leave a dry eye' Daily Mirror\n",
                 "https://tinyurl.com/537jw4n5");
-        Book b5 = new Book("Clean code", Arrays.asList("Robert C. Martin"), "Pearson", "clean_code.jpg", "Even bad code can function. But if code isn’t clean, it can bring a development organization to its knees. Every year, countless hours and significant resources are lost because of poorly written code. But it doesn’t have to be that way.\n" +
+        Book b5 = new Book("Technical", "Clean code", Arrays.asList("Robert C. Martin"), "Pearson", "clean_code.jpg", "Even bad code can function. But if code isn’t clean, it can bring a development organization to its knees. Every year, countless hours and significant resources are lost because of poorly written code. But it doesn’t have to be that way.\n" +
                 "\n" +
                 "Noted software expert Robert C. Martin presents a revolutionary paradigm with Clean Code: A Handbook of Agile Software Craftsmanship. Martin has teamed up with his colleagues from Object Mentor to distill their best agile practice of cleaning code “on the fly” into a book that will instill within you the values of a software craftsman and make you a better programmer―but only if you work at it.\n" +
                 "\n" +
@@ -120,25 +120,48 @@ public class TestConfig implements CommandLineRunner {
                 "This book is a must for any developer, software engineer, project manager, team lead, or systems analyst with an interest in producing better code. ",
                 "https://tinyurl.com/5886b2py");
 
-        Book b6 = new Book("The Little Prince", Arrays.asList("Antoine de Saint-Exupéry"), "BN Publishing", "little_prince.jpg", "The Little Prince describes his journey from planet to planet, each tiny world populated by a single adult. It's a wonderfully inventive sequence, which evokes not only the great fairy tales but also such monuments of postmodern whimsy. The author pokes similar fun at a businessman, a geographer, and a lamplighter, all of whom signify some futile aspect of adult existence.",
+        Book b6 = new Book("Children", "The Little Prince", Arrays.asList("Antoine de Saint-Exupéry"), "BN Publishing", "little_prince.jpg", "The Little Prince describes his journey from planet to planet, each tiny world populated by a single adult. It's a wonderfully inventive sequence, which evokes not only the great fairy tales but also such monuments of postmodern whimsy. The author pokes similar fun at a businessman, a geographer, and a lamplighter, all of whom signify some futile aspect of adult existence.",
                 "https://tinyurl.com/3ajzyvzp");
 
-        Book b7 = new Book("Angels & Demons", Arrays.asList("Dan Brown"), "Corgi Books", "angels_demons.jpg", "CERN Institute, Switzerland: um cientista mundialmente renowned é fundamentado com um símbolo misterioso que seared onto your chest.\n" +
+        Book b7 = new Book("Science Fiction", "Angels & Demons", Arrays.asList("Dan Brown"), "Corgi Books", "angels_demons.jpg", "CERN Institute, Switzerland: um cientista mundialmente renowned é fundamentado com um símbolo misterioso que seared onto your chest.\n" +
                 "\n" +
                 "The Vatican, Rome: os conjuntos College of Cardinals para elect uma nova pope. Somewhere beneath them, uma bomba sem stoppable de terrifying power relentlessly conts down to oblivion.\n" +
                 "\n" +
                 "In a breathtaking race against time, Harvard professor Robert Langdon deve decipher a labyrinthine trail of ancient symbols if he is to defeat those responsible - the Illuminati, a secret brotherhood presumed extinct for nearly five hundred years, reborn to continuue their deadly vendetta contra o seu enema mais cheio, a Igreja Católica. ",
                 "https://tinyurl.com/kftdbydk");
 
-        Book b8 = new Book("Harry Potter And The Chamber Of Secrets", Arrays.asList("J.K. Rowling"), "Bloomsbury", "harry_potter.jpg", "\n" +
+        Book b8 = new Book("Mystery", "Harry Potter And The Chamber Of Secrets", Arrays.asList("J.K. Rowling"), "Bloomsbury", "harry_potter.jpg", "\n" +
                 "\n" +
                 "Harry Potter's summer has included the worst birthday ever, doomy warnings from a house-elf called Dobby, and rescue from the Dursleys by his friend Ron Weasley in a magical flying car! Back at Hogwarts School of Witchcraft and Wizardry for his second year, Harry hears strange whispers echo through empty corridors - and then the attacks start. Students are found as though turned to stone . Dobby's sinister predictions seem to be coming true.\n" +
                 "\n" +
                 "These new editions of the classic and internationally bestselling, multi-award-winning series feature instantly pick-up-able new jackets by Jonny Duddle, with huge child appeal, to bring Harry Potter to the next generation of readers. It's time to PASS THE MAGIC ON .\n",
                 "https://tinyurl.com/nhdkkanc");
 
+        Book b9 = new Book("Science Fiction", "The Da Vinci Code", Arrays.asList("Dan Brown"), "Anchor", "da_vinci_code.jpg", " #1 WORLDWIDE BESTSELLER • While in Paris, Harvard symbologist Robert Langdon is awakened by a phone call in the dead of the night. The elderly curator of the Louvre has been murdered inside the museum, his body covered in baffling symbols. \n" +
+                "\n" +
+                "“Blockbuster perfection.... A gleefully erudite suspense novel.” —The New York Times\n" +
+                "\n" +
+                "“A pulse-quickening, brain-teasing adventure.” —People\n" +
+                "\n" +
+                "As Langdon and gifted French cryptologist Sophie Neveu sort through the bizarre riddles, they are stunned to discover a trail of clues hidden in the works of Leonardo da Vinci—clues visible for all to see and yet ingeniously disguised by the painter.\n" +
+                "\n" +
+                "Even more startling, the late curator was involved in the Priory of Sion—a secret society whose members included Sir Isaac Newton, Victor Hugo, and Da Vinci—and he guarded a breathtaking historical secret. Unless Langdon and Neveu can decipher the labyrinthine puzzle—while avoiding the faceless adversary who shadows their every move—the explosive, ancient truth will be lost forever. ",
+                "https://tinyurl.com/579bx83v");
+        Book b10 = new Book("Parenting & Relationships", "Far From The Tree: Parents, Children and the Search for Identity", Arrays.asList("Andrew Solomon"), "Scribner", "far_from_the_tree.jpg", " * Selected as One of the Best Books of the 21st Century by The New York Times *\n" +
+                "\n" +
+                "* WINNER of the National Book Critics Circle Award * Books for a Better Life Award * The New York Times Book Review’s 10 Best Books of the Year *\n" +
+                "\n" +
+                "This masterpiece by the National Book Award–winning author of The Noonday Demon features stories of parents who not only learn to deal with their exceptional children, but also find profound meaning in doing so—“a brave, beautiful book that will expand your humanity” (People).\n" +
+                "\n" +
+                "Solomon’s startling proposition in Far from the Tree is that being exceptional is at the core of the human condition—that difference is what unites us. He writes about families coping with deafness, dwarfism, Down syndrome, autism, schizophrenia, or multiple severe disabilities; with children who are prodigies, who are conceived in rape, who become criminals, who are transgender. While each of these characteristics is potentially isolating, the experience of difference within families is universal, and Solomon documents triumphs of love over prejudice in every chapter.\n" +
+                "\n" +
+                "All parenting turns on a crucial question: to what extent should parents accept their children for who they are, and to what extent they should help them become their best selves. Drawing on ten years of research and interviews with more than three hundred families, Solomon mines the eloquence of ordinary people facing extreme challenges.\n" +
+                "\n" +
+                "Elegantly reported by a spectacularly original and compassionate thinker, Far from the Tree explores how people who love each other must struggle to accept each other—a theme in every family’s life. ",
+                "https://tinyurl.com/49a95muc");
+
         repository.saveBook(b1);
-        repository.saveAllBooks(Arrays.asList(b2, b3, b4, b5, b6, b7, b8));
+        repository.saveAllBooks(Arrays.asList(b2, b3, b4, b5, b6, b7, b8, b9, b10));
 
     }
 }

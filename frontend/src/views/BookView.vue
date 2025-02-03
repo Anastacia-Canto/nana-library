@@ -20,12 +20,14 @@
 		<v-img
 				:src="`/${book.src}`"
 				min-width="300px"
+				position="left top"
 			>
 		</v-img>
 		
 		<div class="about">
 			Author: {{ book.author }}<br>
-			Publisher: {{ book.publisher }}<br><br>
+			Publisher: {{ book.publisher }}<br>
+			Category: {{ book.category }}<br><br>
 			
 			{{ book.description }}
 		</div>

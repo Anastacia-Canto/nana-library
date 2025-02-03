@@ -21,6 +21,7 @@ export const useBookStore = defineStore('books', {
 					this.booksList.push({
 						id: books[e].id,
 						title: books[e].title,
+						category: books[e].category,
 						author: books[e].authors[0],
 						publisher: books[e].publisher,
 						src: books[e].imageName,
