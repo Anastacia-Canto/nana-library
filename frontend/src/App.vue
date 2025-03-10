@@ -58,6 +58,10 @@ function toggleTheme() {
         prepend-icon="mdi-information-variant"
         title="About"
         ></v-list-item>
+        <v-list-item to="/suggestions"
+        prepend-icon="mdi-lightbulb-on-outline"
+        title="Suggestions"
+        ></v-list-item>
       </v-list>
 
       <div class="toggle pa-3">
