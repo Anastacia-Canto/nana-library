@@ -7,7 +7,8 @@ export default {
 				name: "",
 				title: "",
 				author: ""
-			}
+			},
+			dialog: false,
 		}
 	},
 	methods: {
@@ -15,7 +16,7 @@ export default {
 			if (this.suggestion.name != "" && this.suggestion.title != "" && this.suggestion.author != ""){
 				console.log("All good!");
 			} else {
-				console.log("Empty fields");
+				this.dialog = true;
 			}
 		}
 	}
@@ -43,6 +44,24 @@ export default {
 			<v-btn class="form-btn" type="submit" @click.prevent="register">Submit</v-btn>
 		</v-card-actions>
 	</v-card>
+
+	<v-dialog
+	v-model="dialog"
+	width="auto"
+	>
+		<v-card
+		max-width="400"
+        prepend-icon="mdi-alert-circle-outline"
+        text="No empty fields allowed."
+        title="Error"
+		>
+		<v-btn
+            class="ms-auto"
+            text="Ok"
+            @click="dialog = false"
+          ></v-btn>
+		</v-card>
+	</v-dialog>
 	
 </template>
 
