@@ -4,6 +4,7 @@ export default {
 	data() {
 		return {
 			suggestion: {
+				name: "",
 				title: "",
 				author: ""
 			}
@@ -11,33 +12,50 @@ export default {
 	},
 	methods: {
 		register() {
-			if (this.suggestion.title != "" && this.suggestion.author != ""){
+			if (this.suggestion.name != "" && this.suggestion.title != "" && this.suggestion.author != ""){
 				console.log("All good!");
 			} else {
 				console.log("Empty fields");
 			}
-			// this is becoming as a Proxy. Fix it!!
-			console.log(this.suggestion);
 		}
 	}
 }
 </script>
 <template>
-	<form name="suggestion-form">
-		<div class="form">
-			<v-text-field label="Title" v-model="suggestion.title"></v-text-field>		
-			<v-text-field label="Author" v-model="suggestion.author"></v-text-field>
-		</div>
-		<v-btn block type="submit" @click.prevent="register">Submit</v-btn>
-
-	</form>
+	<v-card class="form" color="#e5f1c4">
+		<v-card-title>
+			Send me your book recommendation!
+		</v-card-title>
+		<v-card-subtitle>
+			Because good readings must be shared!
+		</v-card-subtitle>
+		<v-card-text>
+			<form name="suggestion-form">
+				<div>
+					<v-text-field label="Your name" v-model="suggestion.name"></v-text-field>
+					<v-text-field label="Title" v-model="suggestion.title"></v-text-field>		
+					<v-text-field label="Author" v-model="suggestion.author"></v-text-field>
+				</div>
+			</form>
+		</v-card-text>
+		<v-card-actions>
+			<v-spacer></v-spacer>
+			<v-btn class="form-btn" type="submit" @click.prevent="register">Submit</v-btn>
+		</v-card-actions>
+	</v-card>
 	
 </template>
 
 <style>
 
 .form {
-	width: 300px;
+	top: 100px;
+	width: 60vw;
+}
+
+.form-btn {
+	background-color: #5b604e;
+	color: #e5f1c4;
 }
 
 </style>
