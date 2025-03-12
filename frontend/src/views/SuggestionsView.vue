@@ -15,6 +15,7 @@ export default {
 		register() {
 			if (this.suggestion.name != "" && this.suggestion.title != "" && this.suggestion.author != ""){
 				console.log("All good!");
+				//send to database
 			} else {
 				this.dialog = true;
 			}
