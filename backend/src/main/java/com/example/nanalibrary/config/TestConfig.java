@@ -1,7 +1,9 @@
 package com.example.nanalibrary.config;
 
 import com.example.nanalibrary.entities.Book;
+import com.example.nanalibrary.entities.Suggestion;
 import com.example.nanalibrary.services.BookServiceImpl;
+import com.example.nanalibrary.services.SuggestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -12,7 +14,10 @@ import java.util.Arrays;
 public class TestConfig implements CommandLineRunner {
 
     @Autowired
-    BookServiceImpl repository;
+    BookServiceImpl bookRepository;
+
+    @Autowired
+    SuggestionService suggestionRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -160,8 +165,13 @@ public class TestConfig implements CommandLineRunner {
                 "Elegantly reported by a spectacularly original and compassionate thinker, Far from the Tree explores how people who love each other must struggle to accept each other—a theme in every family’s life. ",
                 "https://tinyurl.com/49a95muc");
 
-        repository.saveBook(b1);
-        repository.saveAllBooks(Arrays.asList(b2, b3, b4, b5, b6, b7, b8, b9, b10));
+        bookRepository.saveBook(b1);
+        bookRepository.saveAllBooks(Arrays.asList(b2, b3, b4, b5, b6, b7, b8, b9, b10));
+
+        Suggestion s1 = new Suggestion("Anastácia", "Harry Potter", Arrays.asList("J.K. Rowling"));
+        Suggestion s2 = new Suggestion("Júlia", "The Colour Monster", Arrays.asList("Anna Llenas"));
+
+        suggestionRepository.saveAll(Arrays.asList(s1, s2));
 
     }
 }
