@@ -15,7 +15,8 @@ export default {
 				title: "",
 				author: ""
 			},
-			dialog: false,
+			errorDialog: false,
+			confirmDialog: false,
 			recommendedBooks: suggestionStore.suggestionList,
 		}
 	},
@@ -25,12 +26,11 @@ export default {
 				const res = await suggestionStore.postSuggestion(this.suggestion);
 				if (res) {
 					this.recommendedBooks.push(this.suggestion);
-					// this.suggestion.name = "";
-					// this.suggestion.title = "";
-					// this.suggestion.author = "";
+					this.$refs.form.reset();
+					this.confirmDialog = false;
 				}
 			} else {
-				this.dialog = true;
+				this.errorDialog = true;
 			}
 		}
 	}
@@ -48,17 +48,17 @@ export default {
 				Because good readings must be shared!
 			</v-card-subtitle>
 			<v-card-text>
-				<form name="suggestion-form">
+				<form ref="form" name="suggestion-form">
 					<div>
-						<v-text-field label="Your name" v-model="suggestion.name"></v-text-field>
-						<v-text-field label="Title" v-model="suggestion.title"></v-text-field>		
-						<v-text-field label="Author" v-model="suggestion.author"></v-text-field>
+						<v-text-field clearable label="Your name" v-model="suggestion.name"></v-text-field>
+						<v-text-field clearable label="Title" v-model="suggestion.title"></v-text-field>		
+						<v-text-field clearable label="Author" v-model="suggestion.author"></v-text-field>
 					</div>
 				</form>
 			</v-card-text>
 			<v-card-actions>
 				<v-spacer></v-spacer>
-				<v-btn class="form-btn" type="submit" @click.prevent="register">Submit</v-btn>
+				<v-btn class="form-btn" type="submit" @click="confirmDialog = true">Submit</v-btn>
 			</v-card-actions>
 		</v-card>
 	</div>
@@ -90,7 +90,7 @@ export default {
 
 
 	<v-dialog
-	v-model="dialog"
+	v-model="errorDialog"
 	width="auto"
 	>
 		<v-card
@@ -102,8 +102,34 @@ export default {
 		<v-btn
             class="ms-auto"
             text="Ok"
-            @click="dialog = false"
+            @click="errorDialog = false"
           ></v-btn>
+		</v-card>
+	</v-dialog>
+
+	<v-dialog
+	v-model="confirmDialog"
+	width="auto"
+	>
+		<v-card
+		min-width="500"
+		prepend-icon="mdi-check-circle-outline"
+		title="Review your suggestion:"
+		>
+			<v-card-text class="pt-3">
+				Title: {{ suggestion.title }}
+				
+			</v-card-text>
+			<v-card-text class="pb-3">
+				Author: {{ suggestion.author }}
+			</v-card-text>
+			<v-card-actions class="px-3">
+				
+				<v-btn class="dialog-btn" @click="confirmDialog = false">Delete</v-btn>
+				<v-spacer></v-spacer>
+				<v-btn class="dialog-btn" @click.prevent="register">Submit</v-btn>
+				
+			</v-card-actions>
 		</v-card>
 	</v-dialog>
 	
@@ -125,7 +151,7 @@ export default {
 	position: inherit;
 }
 
-.form-btn {
+.form-btn, .dialog-btn {
 	background-color: #5b604e;
 	color: #e5f1c4;
 }
