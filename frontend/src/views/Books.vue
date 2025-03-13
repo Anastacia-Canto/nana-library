@@ -24,7 +24,7 @@ const cards = bookStore.booksList;
 		  >
 			<v-card 
 			:to="'/books/' + card.id"
-			title="Book"
+			:title="card.title"
 			color="transparent"
 			>
 			  <v-img
@@ -34,7 +34,7 @@ const cards = bookStore.booksList;
 				height="200px"
 				cover
 			  >
-				<v-card-title class="text-white" v-text="card.title"></v-card-title>
+				<v-card-title class="text-white" v-text="card.author"></v-card-title>
 			  </v-img>
   
 			  <v-card-actions>

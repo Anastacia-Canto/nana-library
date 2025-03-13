@@ -19,6 +19,7 @@ public class NanaLibraryApplication {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/api/books").allowedOrigins("http://localhost:5173");
+				registry.addMapping("/api/suggestions").allowedOrigins("http://localhost:5173");
 			}
 		};
 	}

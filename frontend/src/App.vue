@@ -18,7 +18,7 @@ function toggleTheme() {
 </script>
 
 <template>
-  <v-app>
+  <v-app >
 
     <v-app-bar app>
       <v-toolbar-title>Nana's Library</v-toolbar-title>
@@ -34,7 +34,7 @@ function toggleTheme() {
     >
       <v-list>
           <v-list-item class="px-2" 
-          prepend-avatar="/anastacia.jpg"
+          prepend-avatar="/cover.jpg"
           title="Anastácia Canto"
           subtitle="Nana"
           ></v-list-item>
@@ -54,13 +54,13 @@ function toggleTheme() {
         prepend-icon="mdi-library"
         title="Books"
         ></v-list-item>
-        <v-list-item to="/about"
-        prepend-icon="mdi-information-variant"
-        title="About"
-        ></v-list-item>
         <v-list-item to="/suggestions"
         prepend-icon="mdi-lightbulb-on-outline"
         title="Suggestions"
+        ></v-list-item>
+        <v-list-item to="/about"
+        prepend-icon="mdi-information-variant"
+        title="About"
         ></v-list-item>
       </v-list>
 
@@ -84,8 +84,9 @@ function toggleTheme() {
 
 <style scoped>
 
+
 .main {
-  width: 80vw;
+  width: 95vw;
   display: flex;
   justify-content: center;
 }
