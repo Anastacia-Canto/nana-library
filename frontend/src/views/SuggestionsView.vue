@@ -16,14 +16,19 @@ export default {
 				author: ""
 			},
 			dialog: false,
-			suggestions: suggestionStore.suggestionList,
+			recommendedBooks: suggestionStore.suggestionList,
 		}
 	},
 	methods: {
-		register() {
+		async register() {
 			if (this.suggestion.name != "" && this.suggestion.title != "" && this.suggestion.author != ""){
-				console.log("All good!");
-				//send to database
+				const res = await suggestionStore.postSuggestion(this.suggestion);
+				if (res) {
+					this.recommendedBooks.push(this.suggestion);
+					// this.suggestion.name = "";
+					// this.suggestion.title = "";
+					// this.suggestion.author = "";
+				}
 			} else {
 				this.dialog = true;
 			}
@@ -35,7 +40,7 @@ export default {
 
 <div class="page">
 	<div>
-		<v-card class="form" color="#e5f1c4">
+		<v-card class="form" color="#e5f1c4" >
 			<v-card-title>
 				Send me your book recommendation!
 			</v-card-title>
@@ -65,7 +70,7 @@ export default {
 		<v-container fluid>
 			<v-row dense>
 				<v-col
-				v-for="suggestion in suggestions"
+				v-for="suggestion in recommendedBooks"
 				:key="suggestion.title"
 				cols="12"
 				md="4"

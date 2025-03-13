@@ -21,6 +21,30 @@ export const useSuggestionStore = defineStore('suggestions', {
 					});
 				}
 			}
+		},
+		async postSuggestion(suggestion) {
+			try{
+				const res = await fetch('http://localhost:8080/api/suggestions', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({
+						name: suggestion.name,
+						title: suggestion.title,
+						authors: [suggestion.author],
+					})
+				});
+
+				const submitted = await res.json();
+				return submitted;
+
+			} catch (error) {
+				console.error(error);
+				return null;
+			}
+
+
 		}
 	}
 })

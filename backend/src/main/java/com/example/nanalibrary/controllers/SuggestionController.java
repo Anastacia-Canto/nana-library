@@ -29,6 +29,8 @@ public class SuggestionController {
 
     @PostMapping({"/api/suggestions", "/api/suggestions/"})
     public ResponseEntity<Suggestion> addSuggestion(@RequestBody Suggestion suggestion) {
+        System.out.println("on post");
+        System.out.println(suggestion);
         Suggestion newSuggestion = service.save(suggestion);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/api/suggestions").buildAndExpand().toUri();
         return ResponseEntity.created(uri).body(newSuggestion);
